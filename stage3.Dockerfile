@@ -14,6 +14,9 @@ ARG SUFFIX
 ARG DIST="https://ftp-osl.osuosl.org/pub/gentoo/releases/${ARCH}/autobuilds"
 ARG SIGNING_KEY="0xBB572E0E2D182910"
 
+ENV STAGE3
+ENV STAGE3PATH
+
 RUN echo "Building Gentoo Container image for ${ARCH} ${SUFFIX} fetching from ${DIST}..." \
  && apk --no-cache add ca-certificates gnupg tar wget xz \
  && STAGE3PATH="$(wget -O- "${DIST}/latest-stage3-${MICROARCH}${SUFFIX}.txt" | tail -n 1 | cut -f 1 -d ' ')" \
