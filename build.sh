@@ -23,12 +23,12 @@ ORG=${ORG:-gentoo}
 
 # x86 requires the i686 subfolder
 if [[ "${ARCH}" == "x86" ]]; then
-	DOCKER_ARCH="386"
+	DOCKER_ARCH="i386"
 	MICROARCH="i686"
 	BOOTSTRAP="${DOCKER_ARCH}/${ALPINE}"
 elif [[ "${ARCH}" = ppc* ]]; then
-	MICROARCH="${ARCH}"
 	ARCH=ppc
+	MICROARCH="${ARCH}"
 elif [[ "${ARCH}" == "armv7a" ]]; then
 	DOCKER_ARCH="arm32v7"
 	BOOTSTRAP="${DOCKER_ARCH}/${ALPINE}"
