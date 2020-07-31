@@ -17,6 +17,7 @@ DOCKER_ARCH="${ARCH}"
 SUFFIX=${SUFFIX/-/+}
 
 VERSION=${VERSION:-$(date -u +%Y%m%d)}
+ALPINE="alpine:3.11"
 
 ORG=${ORG:-gentoo}
 
@@ -24,12 +25,13 @@ ORG=${ORG:-gentoo}
 if [[ "${ARCH}" == "x86" ]]; then
 	DOCKER_ARCH="386"
 	MICROARCH="i686"
-	BOOTSTRAP="multiarch/alpine:x86-v3.7"
+	BOOTSTRAP="${DOCKER_ARCH}/${ALPINE}"
 elif [[ "${ARCH}" = ppc* ]]; then
 	MICROARCH="${ARCH}"
 	ARCH=ppc
 elif [[ "${ARCH}" == "armv7a" ]]; then
 	DOCKER_ARCH="arm32v7"
+	BOOTSTRAP="${DOCKER_ARCH}/${ALPINE}"
 	MICROARCH="${ARCH}"
 	ARCH=arm
 elif [[ "${ARCH}" = arm* ]]; then
