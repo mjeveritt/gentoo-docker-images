@@ -1,9 +1,9 @@
 services: docker
-language: bash
+language: shell
 env:
   global:
     - ORG=gentoo
-  matrix:
+  jobs:
     - TARGET=portage
     - TARGET=stage3-amd64
     - TARGET=stage3-amd64-hardened
