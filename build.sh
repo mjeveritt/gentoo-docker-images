@@ -27,8 +27,8 @@ if [[ "${ARCH}" == "x86" ]]; then
 	MICROARCH="i686"
 	BOOTSTRAP="${DOCKER_ARCH}/${ALPINE}"
 elif [[ "${ARCH}" = ppc* ]]; then
-	ARCH=ppc
 	MICROARCH="${ARCH}"
+	ARCH=ppc
 elif [[ "${ARCH}" == "armv7a" ]]; then
 	DOCKER_ARCH="arm32v7"
 	BOOTSTRAP="${DOCKER_ARCH}/${ALPINE}"
