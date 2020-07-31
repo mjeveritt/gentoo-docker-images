@@ -50,5 +50,5 @@ fi
 set -x
 docker build --build-arg ARCH="${ARCH}" --build-arg MICROARCH="${MICROARCH}" --build-arg BOOTSTRAP="${BOOTSTRAP}" --build-arg SUFFIX="${SUFFIX}"  -t "${ORG}/${TARGET}:${VERSION}" -f "${NAME}.Dockerfile" .
 docker-copyedit/docker-copyedit.py FROM "${ORG}/${TARGET}:${VERSION}" INTO "${ORG}/${TARGET}:${VERSION}" -vv \
-    set arch ${DOCKER_ARCH}
+    set arch ${MICROARCH}
 docker tag "${ORG}/${TARGET}:${VERSION}" "${ORG}/${TARGET}:latest"
