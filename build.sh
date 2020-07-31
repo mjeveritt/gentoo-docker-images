@@ -28,6 +28,10 @@ if [[ "${ARCH}" == "x86" ]]; then
 elif [[ "${ARCH}" = ppc* ]]; then
 	MICROARCH="${ARCH}"
 	ARCH=ppc
+elif [[ "${ARCH}" == "armv7a" ]]; then
+	DOCKER_ARCH="arm32v7"
+	MICROARCH="${ARCH}"
+	ARCH=arm
 elif [[ "${ARCH}" = arm* ]]; then
 	DOCKER_ARCH=$(echo $ARCH | sed -e 's-\(v.\).*-/\1-g')
 	MICROARCH="${ARCH}"
